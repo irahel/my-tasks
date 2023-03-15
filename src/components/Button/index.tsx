@@ -1,7 +1,7 @@
-import "./style.scss";
+import style from "./style.module.scss";
 
 function index() {
-  return <button className="botao">button</button>;
+  return <button className={style.botao}>button</button>;
 }
 
 export default index;

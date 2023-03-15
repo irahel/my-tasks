@@ -1,10 +1,10 @@
 import Button from "../Button";
-import "./style.scss";
+import style from "./style.module.scss";
 
 function index() {
   return (
-    <form className="novaTarefa">
-      <div className="inputContainer">
+    <form className={style.novaTarefa}>
+      <div className={style.inputContainer}>
         <label htmlFor="task">Adicione uma nova task:</label>
         <input
           type="text"
@@ -15,7 +15,7 @@ function index() {
         />
       </div>
 
-      <div className="inputContainer">
+      <div className={style.inputContainer}>
         <label htmlFor="time">Tempo:</label>
         <input
           type="time"
