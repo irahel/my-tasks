@@ -27,7 +27,7 @@ function index() {
           required
         />
       </div>
-      <Button />
+      <Button>Adicionar</Button>
     </form>
   );
 }

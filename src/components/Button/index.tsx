@@ -1,7 +1,11 @@
 import style from "./style.module.scss";
 
-function index() {
-  return <button className={style.botao}>button</button>;
+interface ButtonProps {
+  children: string;
+}
+
+function index({ children }: ButtonProps) {
+  return <button className={style.botao}>{children}</button>;
 }
 
 export default index;
