@@ -4,28 +4,16 @@ import { ITask } from "../../types/ITask";
 
 interface ListProps {
   tasks: ITask[];
-  setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
+  handleSelect: (task: ITask) => void;
 }
 
-function List({ tasks, setTasks }: ListProps) {
+function List({ tasks, handleSelect }: ListProps) {
   return (
     <aside className={style.listaTarefas}>
-      <h2
-        onClick={() => {
-          setTasks([
-            ...tasks,
-            {
-              name: "coe",
-              time: "02:00:00",
-            },
-          ]);
-        }}
-      >
-        Estudos do dia
-      </h2>
+      <h2>Estudos do dia</h2>
       <ul>
         {tasks.map((task) => (
-          <Item name={task.name} time={task.time} />
+          <Item key={task.id} {...task} handleSelect={handleSelect} />
         ))}
       </ul>
     </aside>
