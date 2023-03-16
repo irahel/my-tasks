@@ -3,22 +3,10 @@ import List from "./components/List";
 import Stopwatch from "./components/Stopwatch";
 import style from "./App.module.scss";
 import { useState } from "react";
+import { ITask } from "./types/ITask";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      name: "React",
-      time: "02:00:00",
-    },
-    {
-      name: "Javascript",
-      time: "01:00:00",
-    },
-    {
-      name: "Typescript",
-      time: "03:00:00",
-    },
-  ]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
   return (
     <div className={style.AppStyle}>
