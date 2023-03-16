@@ -1,12 +1,7 @@
-import React from "react";
+import { ITask } from "../../../types/ITask";
 import style from "./style.module.scss";
 
-interface TaskProps {
-  name: string;
-  time: string;
-}
-
-function index({ name, time }: TaskProps) {
+function index({ name, time }: ITask) {
   return (
     <li key={name} className={style.item}>
       <h3>{name}</h3>

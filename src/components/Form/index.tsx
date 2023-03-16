@@ -2,6 +2,7 @@ import Button from "../Button";
 import style from "./style.module.scss";
 import { useState } from "react";
 import { ITask } from "../../types/ITask";
+import { v4 as uuidv4 } from "uuid";
 
 interface FormProps {
   setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
@@ -11,9 +12,24 @@ function Form({ setTasks }: FormProps) {
   const [task, setTask] = useState("");
   const [time, setTime] = useState("00:00:00");
 
+  function resetState() {
+    setTask("");
+    setTime("00:00:00");
+  }
+
   function handleSaveTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setTasks((old) => [...old, { name: task, time }]);
+    setTasks((old) => [
+      ...old,
+      {
+        name: task,
+        time,
+        selected: false,
+        completed: false,
+        id: uuidv4(),
+      },
+    ]);
+    resetState();
   }
 
   return (
