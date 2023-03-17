@@ -3,11 +3,12 @@ import style from "./style.module.scss";
 interface ButtonProps {
   children: string;
   type?: "submit" | "reset" | "button";
+  onClick?: () => void;
 }
 
-function index({ children, type = "button" }: ButtonProps) {
+function index({ children, type = "button", onClick }: ButtonProps) {
   return (
-    <button type={type} className={style.botao}>
+    <button onClick={onClick} type={type} className={style.botao}>
       {children}
     </button>
   );

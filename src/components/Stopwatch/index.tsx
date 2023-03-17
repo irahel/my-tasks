@@ -18,13 +18,22 @@ function Stopwatch({ selected }: StopwatchProps) {
     }
   }, [selected]);
 
+  function handleRegress(count: number = 0) {
+    setTimeout(() => {
+      if (count > 0) {
+        setTime(count - 1);
+        return handleRegress(count - 1);
+      }
+    }, 1000);
+  }
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro.</p>
       <div className={style.relogioWrapper}>
         <Timer time={time} />
       </div>
-      <Button>Começar</Button>
+      <Button onClick={() => handleRegress(time)}>Começar</Button>
     </div>
   );
 }
