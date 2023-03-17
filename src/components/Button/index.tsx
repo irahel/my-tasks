@@ -1,7 +1,7 @@
 import style from "./style.module.scss";
 
 interface ButtonProps {
-  children: string;
+  children?: React.ReactNode;
   type?: "submit" | "reset" | "button";
   onClick?: () => void;
 }
