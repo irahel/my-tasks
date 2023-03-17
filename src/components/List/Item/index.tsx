@@ -16,11 +16,18 @@ function index({
   return (
     <li
       key={name}
-      className={`${style.item} ${selected && style.itemSelecionado}`}
-      onClick={() => handleSelect({ name, time, selected, completed, id })}
+      className={`${style.item} ${selected && style.itemSelecionado} ${
+        completed && style.itemCompletado
+      }`}
+      onClick={() =>
+        !completed && handleSelect({ name, time, selected, completed, id })
+      }
     >
       <h3>{name}</h3>
       <span>{time}</span>
+      {completed && (
+        <span className={style.concluido} aria-label="Tarefa Completada"></span>
+      )}
     </li>
   );
 }
